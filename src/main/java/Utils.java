@@ -83,9 +83,9 @@ public class Utils {
     private static ArrayList<String> sortArray(String[] dataArray) {
         ArrayList<String> result = new ArrayList<>();
         for (String temp : dataArray) {
-            if (!(temp.equals("") || temp.equals("–"))) {
+           // if (!(temp.equals("") || temp.equals("–"))) {
                 result.add(temp);
-            }
+            //}
         }
         Collections.sort(result);
         for (String temp : result) {
