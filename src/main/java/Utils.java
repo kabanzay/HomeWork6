@@ -74,11 +74,9 @@ public class Utils {
 
         }
 
-        // Замена всех символов, кроме букв на пробелы.
-
-        return data.toLowerCase().replaceAll("[^A-Za-zА-Яа-я\\d+]", " ").split("\\s+");
+        //return data.toLowerCase().replaceAll("[^A-Za-zА-Яа-я]", " ").split("\\s+");
         // вариант просто по заданию
-       //return data.toLowerCase().split("\\s+");
+       return data.toLowerCase().split("\\s+");
 
     }
 
