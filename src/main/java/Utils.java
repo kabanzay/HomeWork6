@@ -2,7 +2,8 @@ import java.io.*;
 import java.util.*;
 
 public class Utils {
-    public static void getStatistic() throws IOException {
+    public static void getStatistic() {
+
         ArrayList<String> result = sortArray(parseFile());
         Map<String, Integer> number = new HashMap<>();
         for (String key : result) {
@@ -42,23 +43,18 @@ public class Utils {
 
     }
 
-    private static String[] parseFile() throws IOException {
+    private static String[] parseFile() {
         System.out.println("Введите название файла (text.txt)");
         String data = "";
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
         String fileName = null;
 
-        try {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
 
             fileName = reader.readLine();
 
         } catch (IOException e) {
-
             System.out.println("Ошибка ввода");
-            fileName = reader.readLine();
-            reader.close();
         }
 
         try {
@@ -80,7 +76,7 @@ public class Utils {
 
         // Замена всех символов, кроме букв на пробелы.
 
-        return data.toLowerCase().replaceAll("[^A-Za-zА-Яа-я]", " ").split("\\s+");
+        return data.toLowerCase().replaceAll("[^A-Za-zА-Яа-я\\d+]", " ").split("\\s+");
 
     }
 
