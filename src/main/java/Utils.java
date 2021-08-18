@@ -52,11 +52,10 @@ public class Utils {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
 
             fileName = reader.readLine();
-
         } catch (IOException e) {
             System.out.println("Ошибка ввода");
+            System.exit(1);
         }
-
         try {
 
             Scanner in = new Scanner(new File(fileName));
@@ -74,7 +73,7 @@ public class Utils {
 
         }
 
-        //return data.toLowerCase().replaceAll("[^A-Za-zА-Яа-я]", " ").split("\\s+");
+        //return data.toLowerCase().replaceAll("[^A-Za-zА-Яа-я\\d][^(?<=A-Za-zА-Яа-я\\d)()(?=A-Za-zА-Яа-я\\d)]", " ").split("\\s+");
         // вариант просто по заданию
        return data.toLowerCase().split("\\s+");
 
